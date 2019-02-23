@@ -3,7 +3,11 @@ const router = express.Router();
 const path = require('path');
 
 router.get('/', (req, res) => {
-    res.sendStatus(200);
+    try {
+        res.render('catalog/catalog', {})
+    } catch (e) {
+        res.json({error: e});
+    }
 });
 
 module.exports = router;

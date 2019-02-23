@@ -1,0 +1,15 @@
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  background: $body-background;
+}
+
+div..card {
+  p {
+    font-family: "Times New Roman", serif;
+  }
+}
+
