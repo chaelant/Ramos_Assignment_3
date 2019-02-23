@@ -7,8 +7,8 @@ const rename = require('gulp-rename');
 
 const sassFiles = [
     './node_modules/tether/dist/css/tether.css',
-    './src/styles/variables.scss',
-    './src/styles/custom.scss'
+    './src/variables.scss',
+    './src/custom.scss'
 ];
 
 
@@ -16,10 +16,10 @@ const vendorJsFiles = [
     './node_modules/bootstrap/dist/js/bootstrap.min.js'
 ];
 
-gulp.task('sass', () => {
-    gulp
+gulp.task('sass', gulp.series( () => {
+    return gulp
         .src(sassFiles)
-        .pipe(gulpSASS)
+        .pipe(gulpSASS())
         .pipe(concatenate('styles.css'))
         .pipe(gulp.dest('./public/css'))
         .pipe(
@@ -31,19 +31,19 @@ gulp.task('sass', () => {
         .pipe(cleanCSS())
         .pipe(rename('styles.min.css'))
         .pipe(gulp.dest('./public/css'));
-});
+}));
 
-gulp.task('js:vendor', () => {
-    gulp
+gulp.task('js:vendor', gulp.series( () => {
+    return gulp
         .src(vendorJsFiles)
         .pipe(concatenate('vendor.min.js'))
         .pipe(gulp.dest('./public/js/'));
-});
+}));
 
-gulp.task('build', ['sass', 'js:vendor']);
+gulp.task('build', gulp.series('sass', 'js:vendor'));
 
-gulp.task('watch', () => {
+gulp.task('watch', gulp.series(() => {
     gulp.watch(sassFiles, ['sass']);
-});
+}));
 
-gulp.task('default', ['watch']);
+gulp.task('default', gulp.series('watch'));
