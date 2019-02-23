@@ -6,7 +6,7 @@ const st = express.static(__dirname + '/public');
 
 const app = express();
 
-app.use('./public', st);
+app.use('/public', st);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

@@ -5,16 +5,33 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelramos92/Ramos_Assignment_3"
   },
   "author": "Michael Ramos",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.3.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.1",
-    "gulp": "^4.0.0",
+    "mongodb": "^3.1.13",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.3.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7",
+    "tether": "^1.4.5"
   }
 }
