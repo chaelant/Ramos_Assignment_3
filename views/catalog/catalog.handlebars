@@ -1,7 +1,53 @@
-<div class="card">
-    <div class="card-body">
-        <p class="card-title">{{ProductList.Product1.Name}}</p>
-        <p class="card-text">{{ProductList.Product1.ShortDesc}}</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1">
+            <nav class="nav navbar-light navbar-toggleable-sm">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#product-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse flex-column" id="product-navbar">
+                    {{#each ProductList}}
+                        <a class="anchors" href="#{{this._id}}-card">{{this.Name}}</a>
+                    {{/each}}
+                </div>
+            </nav>
+        </div>
+        <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11">
+            <h1 id="page-title">Perfect Product Portfolio</h1>
+        </div>
     </div>
 </div>
-
+<div class="container">
+    <div class="row">
+        {{#each ProductList}}
+            <div class="col">
+                <div class="card" id="{{this._id}}-card" style="width: 20rem;">
+                    <img class="card-img-top" src="{{this.Image}}" alt="Card Image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">{{this.Name}}</h2>
+                        <p class="card-text">{{this.ShortDesc}}</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{this._id}}-desc">Click for Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="{{this._id}}-desc" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="modal-heading">{{this.Name}}</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{this.FullDesc}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
