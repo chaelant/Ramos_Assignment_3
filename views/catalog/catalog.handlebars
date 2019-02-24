@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1">
             <nav class="nav navbar-light navbar-toggleable-sm">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#product-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#product-navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse flex-column" id="product-navbar">
@@ -30,11 +30,11 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="{{this._id}}-desc" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+            <div class="modal fade" id="{{this._id}}-desc" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="modal-heading">{{this.Name}}</h3>
+                            <h3 class="modal-title" id="modal-{{this._id}}-heading">{{this.Name}}</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
